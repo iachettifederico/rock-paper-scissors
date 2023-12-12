@@ -6,48 +6,76 @@ require "rspec-given"
 RSpec.describe "My spec" do
   When(:game) {
     Game.with(
-      player1: player1,
-      player2: player2,
+      first_player:  first_player,
+      second_player: second_player,
     )
   }
 
-  describe "invalid choices" do
-    context "player1 is invalid" do
-      Given(:player1) { :non_valid_choice }
-      Given(:player2) { :rock }
+  context "first player plays rock" do
+    Given(:first_player) { :rock }
 
-      Then { game == Failure(RuntimeError, Game::INVALID_CHOICE) }
+    context "rock beats scissors" do
+      Given(:second_player) { :scissors }
+
+      Then { game.result == "The first player wins" }
     end
 
-    context "player2 is invalid" do
-      Given(:player1) { :paper }
-      Given(:player2) { :non_valid_choice }
+    context "paper beats rock" do
+      Given(:second_player) { :paper }
 
-      Then { game == Failure(RuntimeError, Game::INVALID_CHOICE) }
+      Then { game.result == "The second player wins" }
+    end
+
+    context "it ties against rock" do
+      Given(:second_player) { :rock }
+
+      Then { game.result == "The game is a tie" }
     end
   end
 
-  describe "player1 wins rock vs scissors" do
-    Given(:player1) { :rock }
-    Given(:player2) { :scissors }
+  context "first player is paper" do
+    Given(:first_player) { :paper  }
 
-    Then { game.tie? == false }
-    Then { game.text == "The winner is Player 1" }
+    context "it wins against rock" do
+      Given(:second_player) { :rock }
+
+      Then { game.result == "The first player wins" }
+    end
+
+    context "it loses against scissors" do
+      Given(:second_player) { :scissors }
+
+      Then { game.result == "The second player wins" }
+    end
+
+    context "it ties against paper" do
+      Given(:second_player) { :paper }
+
+      Then { game.result == "The game is a tie" }
+    end
   end
 
-  describe "player2 wins rock vs scissors" do
-    Given(:player1) { :scissors }
-    Given(:player2) { :rock }
+  context "first player is scissors" do
+    Given(:first_player) { :scissors  }
 
-    Then { game.tie? == false }
-    Then { game.text == "The winner is Player 2" }
+    context "it wins against paper" do
+      Given(:second_player) { :paper }
+
+      Then { game.result == "The first player wins" }
+    end
+
+    context "it loses against rock" do
+      Given(:second_player) { :rock }
+
+      Then { game.result == "The second player wins" }
+    end
+
+    context "it ties against scissors" do
+      Given(:second_player) { :scissors }
+
+      Then { game.result == "The game is a tie" }
+    end
   end
 
-  describe "it can be a tie" do
-    Given(:player1) { :paper }
-    Given(:player2) { :paper }
-
-    Then { game.tie? == true }
-    Then { game.text == "The game is a tie" }
-  end
+  
 end

@@ -1,44 +1,27 @@
 # frozen_string_literal: true
 
 class Game
-  def self.with(player1:, player2:)
-    raise INVALID_CHOICE unless valid_player?(player1)
-    raise INVALID_CHOICE unless valid_player?(player2)
-
-    new(player1: player1, player2: player2)
+  def self.with(first_player:, second_player:)
+    new(first_player: first_player, second_player: second_player)
   end
 
-  def tie?
-    player1 == player2
-  end
+  def result
+    return "The game is a tie" if first_player == second_player
 
-  def text
-    return "The game is a tie" if tie?
-
-    if player1 == :rock
-      "The winner is Player 1"
+    if first_player.wins_against?(second_player)
+      "The first player wins"
     else
-      "The winner is Player 2"
+      "The second player wins"
     end
   end
 
   private
 
-  attr_reader :player1
-  attr_reader :player2
+  attr_reader :first_player
+  attr_reader :second_player
 
-  def initialize(player1:, player2:)
-    @player1 = player1
-    @player2 = player2
-  end
-
-  INVALID_CHOICE = "Invalid choice"
-
-  def self.available_choices
-    %i[rock paper scissors]
-  end
-
-  def self.valid_player?(player)
-    available_choices.include?(player)
+  def initialize(first_player:, second_player:)
+    @first_player  = Choice.for(first_player)
+    @second_player = Choice.for(second_player)
   end
 end
