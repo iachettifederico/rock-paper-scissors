@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Settings
   def load_dirs
     [
@@ -6,7 +8,6 @@ class Settings
   end
 
   def ignore_dirs
-    [
-    ]
+    []
   end
 end

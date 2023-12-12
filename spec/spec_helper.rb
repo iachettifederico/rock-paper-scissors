@@ -1,4 +1,6 @@
-ENV['ENVIRONMENT_NAME'] = "test"
+# frozen_string_literal: true
+
+ENV["ENVIRONMENT_NAME"] = "test"
 
 require "./boot"
 
@@ -13,7 +15,3 @@ RSpec.configure do |config|
 end
 
 require "rake"
-
-FileList["./spec/support/**/*.rb"].each do |file|
-  require file
-end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Object
   def self.boolean_count(attr)
     define_method("#{attr}_count") do

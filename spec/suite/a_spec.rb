@@ -56,7 +56,7 @@ RSpec.describe "My spec" do
   end
 
   context "first player is scissors" do
-    Given(:first_player) { :scissors  }
+    Given(:first_player) { :scissors }
 
     context "it wins against paper" do
       Given(:second_player) { :paper }
@@ -76,6 +76,4 @@ RSpec.describe "My spec" do
       Then { game.result == "The game is a tie" }
     end
   end
-
-  
 end
