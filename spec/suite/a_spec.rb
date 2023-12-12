@@ -32,7 +32,7 @@ RSpec.describe "My spec" do
     Given(:player2) { :scissors }
 
     Then { game.tie? == false }
-    Then { game.text == "The winner is Tito" }
+    Then { game.text == "The winner is Player 1" }
   end
 
   describe "player2 wins rock vs scissors" do
@@ -40,6 +40,6 @@ RSpec.describe "My spec" do
     Given(:player2) { :rock }
 
     Then { game.tie? == false }
-    Then { game.text == "The winner is Toto" }
+    Then { game.text == "The winner is Player 2" }
   end
 end

@@ -14,9 +14,9 @@ class Game
 
   def text
     if player1 == :rock
-      "The winner is Tito"
+      "The winner is Player 1"
     else
-      "The winner is Toto"
+      "The winner is Player 2"
     end
   end
 
