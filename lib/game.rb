@@ -9,10 +9,12 @@ class Game
   end
 
   def tie?
-    false
+    player1 == player2
   end
 
   def text
+    return "The game is a tie" if tie?
+
     if player1 == :rock
       "The winner is Player 1"
     else

@@ -42,4 +42,12 @@ RSpec.describe "My spec" do
     Then { game.tie? == false }
     Then { game.text == "The winner is Player 2" }
   end
+
+  describe "it can be a tie" do
+    Given(:player1) { :paper }
+    Given(:player2) { :paper }
+
+    Then { game.tie? == true }
+    Then { game.text == "The game is a tie" }
+  end
 end
