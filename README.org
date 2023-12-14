@@ -1,1 +1,7 @@
-* Add a README
+* Usage
+
+To play Rock Paper Scissors on the terminal, just run
+
+#+begin_src sh
+  docker-compose run --rm app sh -c "bundle exec /app/bin/rps [rock|paper|scissors]"
+#+end_src
