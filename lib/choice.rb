@@ -2,11 +2,9 @@
 
 class Choice
   def self.for(name)
-    {
-      rock:     Choice::Rock,
-      paper:    Choice::Paper,
-      scissors: Choice::Scissors,
-    }.fetch(name).new
+    subclasses.find { |subclass|
+      subclass.for?(name)
+    }.new
   end
 
   def against(_a_choice)

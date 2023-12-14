@@ -2,6 +2,10 @@
 
 class Choice
   class Rock < Choice
+    def self.for?(name)
+      name.to_s == "rock"
+    end
+
     def against(choice)
       choice.against_rock
     end

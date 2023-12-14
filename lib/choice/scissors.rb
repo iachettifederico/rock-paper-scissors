@@ -2,6 +2,10 @@
 
 class Choice
   class Scissors < Choice
+    def self.for?(name)
+      name.to_s == "scissors"
+    end
+
     def against(choice)
       choice.against_scissors
     end

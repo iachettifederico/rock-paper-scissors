@@ -2,6 +2,10 @@
 
 class Choice
   class Paper < Choice
+    def self.for?(name)
+      name.to_s == "paper"
+    end
+
     def against(choice)
       choice.against_paper
     end
