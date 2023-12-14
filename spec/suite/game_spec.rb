@@ -76,4 +76,37 @@ RSpec.describe "Game spec" do
       Then { game.result == Game::GAME_IS_TIE }
     end
   end
+
+  describe "random choice" do
+    Given(:first_player) { :rock }
+    Given(:second_player) { :random }
+
+    context "first player is random" do
+      When(:game) {
+        Game.with(
+          first_player:  second_player,
+          second_player: first_player,
+          randomizer:    -> { random_choice },
+        )
+      }
+
+      When(:random_choice) { :paper }
+
+      Then { game.first_player.is_a?(Choice::Paper) }
+    end
+
+    context "second player is random" do
+      When(:game) {
+        Game.with(
+          first_player:  first_player,
+          second_player: second_player,
+          randomizer:    -> { random_choice },
+        )
+      }
+
+      When(:random_choice) { :rock }
+
+      Then { game.second_player.is_a?(Choice::Rock) }
+    end
+  end
 end

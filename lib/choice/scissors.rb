@@ -2,7 +2,7 @@
 
 class Choice
   class Scissors < Choice
-    def self.for?(name)
+    def self.for?(name, randomizer:)
       name.to_s == "scissors"
     end
 

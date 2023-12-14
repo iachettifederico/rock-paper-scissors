@@ -2,7 +2,7 @@
 
 class Choice
   class Rock < Choice
-    def self.for?(name)
+    def self.for?(name, randomizer:)
       name.to_s == "rock"
     end
 
