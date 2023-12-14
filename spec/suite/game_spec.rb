@@ -3,7 +3,7 @@
 require "spec_helper"
 require "rspec-given"
 
-RSpec.describe "My spec" do
+RSpec.describe "Game spec" do
   When(:game) {
     Game.with(
       first_player:  first_player,
