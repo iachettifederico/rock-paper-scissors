@@ -2,12 +2,20 @@
 
 class Choice
   class Scissors < Choice
-    def scissors?
-      true
+    def against(choice)
+      choice.against_scissors
     end
 
-    def wins_against?(choice)
-      choice.paper?
+    def against_rock
+      Game::FIRST_PLAYER_WINS
+    end
+
+    def against_paper
+      Game::SECOND_PLAYER_WINS
+    end
+
+    def against_scissors
+      Game::GAME_IS_TIE
     end
   end
 end

@@ -52,6 +52,9 @@ Style/BlockDelimiters:
 Style/Documentation:
   Enabled: false
 
+Style/EmptyMethod:
+  Enabled: false
+
 Style/FrozenStringLiteralComment:
   Enabled: true
   SafeAutoCorrect: true

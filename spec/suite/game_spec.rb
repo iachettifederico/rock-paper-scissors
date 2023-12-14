@@ -17,19 +17,19 @@ RSpec.describe "Game spec" do
     context "rock beats scissors" do
       Given(:second_player) { :scissors }
 
-      Then { game.result == "The first player wins" }
+      Then { game.result == Game::FIRST_PLAYER_WINS }
     end
 
     context "paper beats rock" do
       Given(:second_player) { :paper }
 
-      Then { game.result == "The second player wins" }
+      Then { game.result == Game::SECOND_PLAYER_WINS }
     end
 
     context "it ties against rock" do
       Given(:second_player) { :rock }
 
-      Then { game.result == "The game is a tie" }
+      Then { game.result == Game::GAME_IS_TIE }
     end
   end
 
@@ -39,19 +39,19 @@ RSpec.describe "Game spec" do
     context "it wins against rock" do
       Given(:second_player) { :rock }
 
-      Then { game.result == "The first player wins" }
+      Then { game.result == Game::FIRST_PLAYER_WINS }
     end
 
     context "it loses against scissors" do
       Given(:second_player) { :scissors }
 
-      Then { game.result == "The second player wins" }
+      Then { game.result == Game::SECOND_PLAYER_WINS }
     end
 
     context "it ties against paper" do
       Given(:second_player) { :paper }
 
-      Then { game.result == "The game is a tie" }
+      Then { game.result == Game::GAME_IS_TIE }
     end
   end
 
@@ -61,19 +61,19 @@ RSpec.describe "Game spec" do
     context "it wins against paper" do
       Given(:second_player) { :paper }
 
-      Then { game.result == "The first player wins" }
+      Then { game.result == Game::FIRST_PLAYER_WINS }
     end
 
     context "it loses against rock" do
       Given(:second_player) { :rock }
 
-      Then { game.result == "The second player wins" }
+      Then { game.result == Game::SECOND_PLAYER_WINS }
     end
 
     context "it ties against scissors" do
       Given(:second_player) { :scissors }
 
-      Then { game.result == "The game is a tie" }
+      Then { game.result == Game::GAME_IS_TIE }
     end
   end
 end

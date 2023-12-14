@@ -6,15 +6,9 @@ class Game
   end
 
   def result
-    return "The game is a tie" if first_player == second_player
-
-    if first_player.wins_against?(second_player)
-      "The first player wins"
-    else
-      "The second player wins"
-    end
+    first_player.against(second_player)
   end
-
+  
   private
 
   attr_reader :first_player
@@ -24,4 +18,8 @@ class Game
     @first_player  = Choice.for(first_player)
     @second_player = Choice.for(second_player)
   end
+
+  FIRST_PLAYER_WINS  = "The first player wins"
+  SECOND_PLAYER_WINS = "The first player wins"
+  GAME_IS_TIE        = "The game is a tie"
 end

@@ -2,12 +2,20 @@
 
 class Choice
   class Paper < Choice
-    def paper?
-      true
+    def against(choice)
+      choice.against_paper
     end
 
-    def wins_against?(choice)
-      choice.rock?
+    def against_rock
+      Game::SECOND_PLAYER_WINS
+    end
+
+    def against_paper
+      Game::GAME_IS_TIE
+    end
+
+    def against_scissors
+      Game::FIRST_PLAYER_WINS
     end
   end
 end

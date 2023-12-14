@@ -9,23 +9,19 @@ class Choice
     }.fetch(name).new
   end
 
-  def wins_against?(_choice)
-    false
+  def against(_a_choice)
+    subclass_responsibility
   end
 
-  def ==(other)
-    self.class == other.class
+  def against_rock
+    subclass_responsibility
   end
 
-  def rock?
-    false
+  def against_paper
+    subclass_responsibility
   end
 
-  def paper?
-    false
-  end
-
-  def scissors?
-    false
+  def against_scissors
+    subclass_responsibility
   end
 end
