@@ -4,7 +4,7 @@ class Game
   attr_reader :first_player
   attr_reader :second_player
 
-  def self.with(first_player:, second_player:, randomizer: -> { %i[rock paper scissors].sample })
+  def self.with(first_player:, second_player:, randomizer: -> { %i[rock  scissors paper].sample })
     new(
       first_player:  first_player,
       second_player: second_player,
@@ -23,7 +23,7 @@ class Game
     @second_player = Choice.for(second_player, randomizer: randomizer)
   end
 
-  FIRST_PLAYER_WINS  = "The first player wins"
-  SECOND_PLAYER_WINS = "The first player wins"
+  FIRST_PLAYER_WINS  = "You win"
+  SECOND_PLAYER_WINS = "You lose"
   GAME_IS_TIE        = "The game is a tie"
 end

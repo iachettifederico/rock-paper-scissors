@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+require_relative "../boot"
+
+choice = ARGV.first
+
+puts "Usage #{$0} [rock|paper|scissors]" unless choice
+
+puts Game.with(
+       first_player: choice,
+       second_player: :random
+     ).result
